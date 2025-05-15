@@ -187,15 +187,18 @@ SWITCH_GetDisplayModes(_THIS, SDL_VideoDisplay *display)
 {
     SDL_DisplayMode mode;
 
-    // 1920x1080 RGBA8888, default mode
-    SDL_AddDisplayMode(display, &display->current_mode);
-
-    // 1280x720 RGBA8888
     SDL_zero(mode);
-    mode.w = 1280;
-    mode.h = 720;
     mode.refresh_rate = 60;
     mode.format = SDL_PIXELFORMAT_RGBA8888;
+
+    // 1280x720 RGBA8888
+    mode.w = 1280;
+    mode.h = 720;
+    SDL_AddDisplayMode(display, &mode);
+
+    // 1920x1080 RGBA8888
+    mode.w = 1920;
+    mode.h = 1080;
     SDL_AddDisplayMode(display, &mode);
 }
 
