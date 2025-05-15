@@ -127,8 +127,15 @@ SWITCH_VideoInit(_THIS)
     SDL_DisplayMode current_mode;
 
     SDL_zero(current_mode);
-    current_mode.w = 1920;
-    current_mode.h = 1080;
+
+    if(appletGetOperationMode() == AppletOperationMode_Handheld) {
+        current_mode.w = 1280;
+        current_mode.h = 720;
+    } else {
+        current_mode.w = 1920;
+        current_mode.h = 1080;
+    }
+
     current_mode.refresh_rate = 60;
     current_mode.format = SDL_PIXELFORMAT_RGBA8888;
     current_mode.driverdata = NULL;
