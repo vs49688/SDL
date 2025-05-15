@@ -179,7 +179,7 @@ endif()
 #  for the time being. This default with change to ON once this becomes
 #  commonly supported in browsers or the Emscripten teams makes a single
 #  binary work everywhere.
-if (UNIX_OR_MAC_SYS AND NOT EMSCRIPTEN)
+if ((UNIX_OR_MAC_SYS OR NINTENDO_SWITCH) AND NOT EMSCRIPTEN)
   set(SDL_PTHREADS_ENABLED_BY_DEFAULT ON)
 else()
   set(SDL_PTHREADS_ENABLED_BY_DEFAULT OFF)
